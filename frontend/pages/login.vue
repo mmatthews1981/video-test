@@ -18,7 +18,7 @@
               placeholder="Enter email"
             ></b-form-input>
           </b-form-group>
-          <b-button type="submit" variant="primary">Submit</b-button>
+          <b-button type="submit" variant="primary" @click="onSubmit()">Submit</b-button>
         </b-form>
       </b-card>
     </div>
@@ -32,14 +32,22 @@ export default {
       form: {
         email: ''
       },
+      users: []
     };
   },
   methods: {
     onSubmit(){
-      console.log('A form was submitted');
+      console.log(this.users);
     },
+    async getUsers() {
+      let res = await this.$axios.get('http://localhost:8080/users')
+      this.users = res.data.data;
+    }
   },
-  middleware: 'authenticated'
+  middleware: 'authenticated',
+  mounted() {
+    this.getUsers();
+  },
 }
 </script>
 
