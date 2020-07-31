@@ -15,9 +15,8 @@
             ></b-form-input>
           </b-form-group>
           <b-alert variant="danger" :show="notfound">Sorry, that username is not found</b-alert>
-          <b-button type="submit" variant="primary" @click.prevent="onSubmit()">Submit</b-button>
-        </b-form>
-
+          <b-button type="submit" variant="primary" @click.prevent="onSubmit()" :disabled="isDisabled">Submit</b-button>
+        </b-form> 
 </template>
 
 <script>
@@ -31,6 +30,11 @@ export default {
       users: [],
       notfound: false,
     };
+  },
+  computed: {
+    isDisabled() {
+      return this.form.username.length < 3
+    }
   },
   methods: {
     onSubmit(){
