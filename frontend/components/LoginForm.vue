@@ -14,6 +14,7 @@
               placeholder="Enter Username"
             ></b-form-input>
           </b-form-group>
+          <b-alert variant="danger" :show="notfound">Sorry, that username is not found</b-alert>
           <b-button type="submit" variant="primary" @click.prevent="onSubmit()">Submit</b-button>
         </b-form>
 
@@ -27,13 +28,19 @@ export default {
       form: {
         username: ''
       },
-      users: []
+      users: [],
+      notfound: false,
     };
   },
   methods: {
     onSubmit(){
       let usercheck = this.users.find(obj => obj.username === this.form.username)
-      if (usercheck) {this.$store.commit('authenticate'); this.$router.push({path: '/videos'})};    
+      if (usercheck) {
+        this.notfound = false;
+        this.$store.commit('authenticate'); this.$router.push({path: '/videos'})
+      } else {
+        this.notfound = true;
+      };    
     },
     async getUsers() {
       let res = await this.$axios.get('http://localhost:8080/users')
