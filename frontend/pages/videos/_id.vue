@@ -3,9 +3,9 @@
   <div> a thing</div>
   <div>video</div>
   <div>
-    title goes here{{}}
+    {{video.title}}
   </div>
-  <div>description {{this.$route.params.id}}</div>
+  <div>{{video.description}}</div>
 </div>
 </template>
 
@@ -14,11 +14,12 @@ export default {
   data() {
     return {
       video: { },
+      id: this.$route.params.id
     };
   },
   methods: {
     async getVideo() {
-      let res = await this.$axios.get('http://localhost:8080/video/1')
+      let res = await this.$axios.get('http://localhost:8080/videos/'+this.id)
       this.video = res.data.data;
     },
   },
