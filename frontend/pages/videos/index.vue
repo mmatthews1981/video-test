@@ -8,12 +8,11 @@
     <div class="row">
       <div class="col">
         <b-list-group>
-          <b-list-group-item v-for="video in videos" v-bind:key="video.id">
-            {{video.title}} 
-            {{video.description}}
-            <nuxt-link :to="'videos/'+video.id">link</nuxt-link>  
-
-          </b-list-group-item>
+          <VideoSummary v-for="video in videos" 
+            v-bind:key="video.id"
+            v-bind:title="video.title"
+            v-bind:description="video.description" 
+            v-bind:id="video.id" />
         </b-list-group>
       </div>
     </div>
