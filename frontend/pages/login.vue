@@ -38,7 +38,8 @@ export default {
     onSubmit(){
       console.log('A form was submitted');
     },
-  }
+  },
+  middleware: 'authenticated'
 }
 </script>
 
