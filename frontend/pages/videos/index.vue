@@ -12,8 +12,10 @@
             v-bind:key="video.id"
             v-bind:title="video.title"
             v-bind:description="video.description" 
-            v-bind:id="video.id" />
+            v-bind:id="video.id"
+            v-bind:video_id="video.video_id" />
         </b-list-group>
+
       </div>
     </div>
   </div>
@@ -25,18 +27,20 @@ export default {
   data() {
     return {
       videos: { },
+      test: {}
     };
   },
   methods: {
     async getVideos() {
       let res = await this.$axios.get('http://localhost:8080/videos')
       this.videos = res.data.data;
-    },
+    }
   },
   mounted() {
     this.getVideos();
-  }
+  },
 }
+
 </script>
 
 <style>

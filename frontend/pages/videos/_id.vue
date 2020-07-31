@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div> a thing</div>
+  <div>a thing</div>
   <div>video</div>
   <div>
     {{video.title}}
