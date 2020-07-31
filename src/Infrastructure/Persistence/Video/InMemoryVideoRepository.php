@@ -45,7 +45,7 @@ class InMemoryVideoRepository implements VideoRepository
      */
     public function findVideoOfId(int $id): Video
     {
-        if (!isset($this->Videos[$id])) {
+        if (!isset($this->videos[$id])) {
             throw new VideoNotFoundException();
         }
 
