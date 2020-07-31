@@ -8,11 +8,12 @@
     <div class="row">
       <div class="col">
         <b-list-group>
-          <b-list-group-item>Cras justo odio</b-list-group-item>
-          <b-list-group-item>Dapibus ac facilisis in</b-list-group-item>
-          <b-list-group-item>Morbi leo risus</b-list-group-item>
-          <b-list-group-item>Porta ac consectetur ac</b-list-group-item>
-          <b-list-group-item>Vestibulum at eros</b-list-group-item>
+          <b-list-group-item v-for="video in videos" v-bind:key="video.id">
+            {{video.title}} 
+            {{video.description}}
+            <nuxt-link :to="'videos/'+video.id">link</nuxt-link>  
+
+          </b-list-group-item>
         </b-list-group>
       </div>
     </div>
@@ -20,18 +21,21 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      form: {
-        email: ''
-      },
+      videos: { },
     };
   },
   methods: {
-    onSubmit(){
-      console.log('A form was submitted');
+    async getVideos() {
+      let res = await this.$axios.get('http://localhost:8080/videos')
+      this.videos = res.data.data;
     },
+  },
+  mounted() {
+    this.getVideos();
   }
 }
 </script>
