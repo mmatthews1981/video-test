@@ -1,29 +1,27 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        <h1>Welcome to Our Video Library</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <b-list-group>
-          <VideoSummary v-for="video in videos" 
-            v-bind:key="video.id"
-            v-bind:title="video.title"
-            v-bind:description="video.description" 
-            v-bind:id="video.id"
-            v-bind:video_id="video.video_id" />
-        </b-list-group>
-
-      </div>
-    </div>
+    <b-container>
+      <b-row>
+        <b-col col="12">
+          <h1>Welcome to Our Video Library</h1>
+        </b-col>
+      </b-row>
+      <b-row class="summaries">
+            <VideoSummary v-for="video in videos" 
+              v-bind:key="video.id"
+              v-bind:title="video.title"
+              v-bind:description="video.description" 
+              v-bind:id="video.id"
+              v-bind:video_id="video.video_id" />
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
 
 export default {
+
   data() {
     return {
       videos: { },
@@ -44,13 +42,14 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
+.container{
+  margin-bottom: 50px;
+}
+
+.summaries {
+  flex-wrap:wrap;
+
 }
 
 .title {

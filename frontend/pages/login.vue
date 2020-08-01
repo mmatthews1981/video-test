@@ -3,7 +3,7 @@
   <b-container>
     <div>
       <b-card>
-        Welcome To Our Video Library, Please Log In
+        <h2>User Login</h2>
         <LoginForm />
       </b-card>
     </div>
@@ -24,7 +24,7 @@ export default {
 <style scoped>
 
 .container-fluid {
-  background-color: green;
+  background-color: #013b30;
   display: flex;
   height: 90vh
 }
@@ -33,6 +33,12 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.card {
+  border-radius: 0;
+  padding: 30px;
+  min-width: 500px
 }
 
 .title {

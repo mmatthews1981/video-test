@@ -15,7 +15,7 @@
             ></b-form-input>
           </b-form-group>
           <b-alert variant="danger" :show="notfound">Sorry, that username is not found</b-alert>
-          <b-button type="submit" variant="primary" @click.prevent="onSubmit()" :disabled="isDisabled">Submit</b-button>
+          <b-button type="submit" class="button--green" @click.prevent="onSubmit()" :disabled="isDisabled">Submit</b-button>
         </b-form> 
 </template>
 
@@ -56,3 +56,9 @@ export default {
   },
 }
 </script>
+
+<style >
+.d-block {
+  opacity: 0
+}
+</style>

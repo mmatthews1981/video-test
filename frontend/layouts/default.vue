@@ -32,11 +32,34 @@ html {
   margin: 0;
 }
 
+h1, h2, h3, h4, h5 {
+font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana, sans-serif;
+color: #3b8070;
+}
+
+button {
+  border-radius: 25px;
+}
+
+a{
+  color: #3b8070
+}
+
+a:hover, a:active{
+  color: #3b8070;
+  text-decoration: underline!important;
+}
+
+img {
+  width: 100%
+}
+
 .button--green {
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #3b8070;
-  color: #3b8070;
+  color: #fff;
+  background-color: #013b30;
   text-decoration: none;
   padding: 10px 30px;
 }
