@@ -7,9 +7,9 @@
     </b-navbar-brand>
         <b-nav class="ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/" @click.prevent="loginout()">{{logintext}}</a>
+            <a class="nav-link" href="/" @click.prevent="loginout()">{{logintext ? "Log Out" : "Log In"}}</a>
           </li>
-          <b-nav-item :if="this.$store.state.authenticated" to="/videos">Videos</b-nav-item>
+          <b-nav-item :if="this.$store.state.authenticated" to="/videos" v-if="logintext">Videos</b-nav-item>
         </b-nav>
       </b-col>
     </b-row>
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
       logintext() {
-        return this.$store.state.authenticated ? "Log Out" : "Log In"
+        return this.$store.state.authenticated;
       }
     }
 }
