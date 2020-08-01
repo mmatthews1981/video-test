@@ -1,29 +1,34 @@
 <template>
-  <div class="container">
+<b-container fluid>
+  <b-container>
     <div>
       <b-card>
         Welcome To Our Video Library, Please Log In
         <LoginForm />
       </b-card>
     </div>
-  </div>
+  </b-container>
+</b-container>
+
+
 </template>
 
 <script>
 
 
 export default {
-
-
   middleware: 'authenticated',
-
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
+<style scoped>
+
+.container-fluid {
+  background-color: green;
+  display: flex;
+  height: 90vh
+}
+.container{
   display: flex;
   justify-content: center;
   align-items: center;
