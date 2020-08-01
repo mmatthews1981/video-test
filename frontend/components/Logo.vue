@@ -1,9 +1,5 @@
 <template>
-
-<a href="/" title="AlgaeCal" rel="home" itemprop="mainEntityOfPage">
-
-
-
+  <a href="/" title="AlgaeCal" rel="home" itemprop="mainEntityOfPage">
 </template>
 
 <style>

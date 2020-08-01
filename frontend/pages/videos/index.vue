@@ -43,8 +43,8 @@ export default {
 
 <style scoped>
 
-.container{
-  margin-bottom: 50px;
+.container-fluid{
+  margin: 50px 0;
 }
 
 .summaries {

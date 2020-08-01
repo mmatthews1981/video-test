@@ -6,13 +6,33 @@
         <img class="Logo" src="https://cdn.algaecal.com/wp-content/themes/algaecal/img/logo-2020.svg" />
     </b-navbar-brand>
         <b-nav class="ml-auto">
-          <b-nav-item to="/login">Logout</b-nav-item>
-          <b-nav-item to="/videos">Videos</b-nav-item>
+          <li class="nav-item">
+            <a class="nav-link" href="/" @click.prevent="loginout()">{{logintext}}</a>
+          </li>
+          <b-nav-item :if="this.$store.state.authenticated" to="/videos">Videos</b-nav-item>
         </b-nav>
       </b-col>
     </b-row>
   </b-container>
 </template>
+
+<script>
+import { authState } from 'vuex'
+export default {
+  methods: {
+    loginout(){
+      this.$store.commit('logout');
+      console.log(this.$store.state.authenticated)
+      this.$router.push({name: 'custom'})
+    }
+  },
+  computed: {
+      logintext() {
+        return this.$store.state.authenticated ? "Log Out" : "Log In"
+      }
+    }
+}
+</script>
 
 <style scoped>
 
